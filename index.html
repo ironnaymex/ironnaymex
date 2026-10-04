@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iron Nay Mex | Estructuras metálicas y naves industriales</title>
+<meta name="description" content="Iron Nay Mex: diseño, fabricación y montaje de estructuras metálicas, naves industriales, andamios, encofrados, rampas y puntales en todo México.">
+<meta name="theme-color" content="#27413a">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Mis colores base y fuentes del sitio */
+:root{
+  --green:#27413a;
+  --olive:#c5c872;
+  --ink:#0d0d0d;
+  --paper:#ffffff;
+  --red:#d2232a;
+  --mx:#1f9d4b;
+  --rail:clamp(56px,6vw,92px);
+  --serif:'Libre Caslon Text','Georgia',serif;
+  --sans:'Fira Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Estructura para que cada seccion ocupe la pantalla */
+.slide{display:grid;grid-template-columns:minmax(0,1fr) var(--rail);min-height:min(100svh,860px);position:relative;background:var(--paper)}
+.slide.left{grid-template-columns:var(--rail) minmax(0,1fr)}
+.slide.left .rail{order:-1}
+.rail{display:flex;flex-direction:column;align-items:center;justify-content:space-between;background:var(--paper)}
+.arrow{width:100%;height:clamp(64px,9vw,145px);background:var(--c,var(--green));color:#fff;display:grid;place-items:center;transition:filter .2s}
+.arrow:hover{filter:brightness(1.25)}
+.arrow svg{width:28px;height:28px}
+.vtext{writing-mode:vertical-rl;font-family:var(--serif);font-weight:700;letter-spacing:.14em;font-size:clamp(.7rem,1vw,.95rem);padding:0 0 18vh;color:var(--ink)}
+.slide.left .vtext{transform:none}
+.main{min-width:0}
+
+/* Títulos y textos */
+.h-xl{font-family:var(--serif);font-weight:700;line-height:1.08;font-size:clamp(2.2rem,5.2vw,4.4rem)}
+.h-lg{font-family:var(--serif);font-weight:700;line-height:1.15;font-size:clamp(1.7rem,3.4vw,3rem)}
+.h-md{font-family:var(--serif);font-weight:700;font-size:clamp(1.05rem,1.6vw,1.45rem);line-height:1.3}
+.label{font-family:var(--serif);font-weight:700;text-transform:uppercase;font-size:clamp(.9rem,1.3vw,1.15rem);letter-spacing:.02em}
+.rule{display:block;width:clamp(90px,11vw,165px);height:4px;background:currentColor;margin:1.1rem 0 1.6rem}
+.lead{font-size:clamp(1rem,1.3vw,1.2rem)}
+
+/* Espacios grises para fotos y animaciones */
+.ph{background-color:#c9cfcb;background-image:linear-gradient(135deg,#aeb7b2,#dfe3e0);background-size:cover;background-position:center;min-height:200px;width:100%;height:100%}
+.green{background:var(--green);color:#fff}
+.pad{padding:clamp(1.4rem,4vw,4.5rem)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* Animaciones suaves al cargar la portada */
+@keyframes heroFadeUp {
+  0% { opacity:0; transform:translateY(25px); }
+  100% { opacity:1; transform:translateY(0); }
+}
+@keyframes heroZoomIn {
+  0% { opacity:0; transform:scale(1.05); }
+  100% { opacity:1; transform:scale(1); }
+}
+.hero-anim-logo { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hero-anim-title { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; opacity:0; }
+.hero-anim-photo { animation: heroZoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; }
+.hero-anim-green { animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity:0; }
+
+/* Logotipo sin fondo negro */
+.logo-plate{display:inline-block;background:transparent;padding:0;border-radius:0}
+.logo-plate img{width:clamp(200px,32vw,440px);height:auto}
+
+/* Seccion 1 - Hero Escritorio */
+.hero-main{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:2fr 1fr}
+.hero-logo{grid-column:1/8;grid-row:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1.6rem;padding:clamp(1.4rem,4vw,4rem)}
+.hero-logo h1{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.15}
+.hero-logo h1 em{font-style:normal;color:var(--red)}
+.hero-photo{grid-column:8/13;grid-row:1/3;overflow:hidden}
+.hero-small{grid-column:1/4;grid-row:2}
+.hero-green{grid-column:4/8;grid-row:2;display:flex;align-items:center}
+.hero-green p{font-size:clamp(.95rem,1.4vw,1.25rem);font-family:var(--serif);line-height:1.5}
+
+/* Seccion 2 - Nosotros */
+.about-main{display:grid;grid-template-columns:5fr 7fr}
+.about-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.4rem,4vw,4.5rem)}
+.about-text .h-lg{margin-bottom:1.6rem}
+.about-text p{margin-bottom:1rem;max-width:62ch}
+
+/* Seccion 3 - Servicios */
+.serv-main{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:auto auto}
+.serv-title{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.4rem,4vw,4rem)}
+.serv-title p{margin-top:1.2rem;max-width:42ch}
+.serv-photo1{min-height:300px}
+.serv-photo2{min-height:300px}
+.serv-list{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;align-content:center}
+.serv-list h3{margin-bottom:.35rem}
+.serv-list p{font-size:.95rem;opacity:.95}
+
+/* Seccion 4 - Portafolio */
+.proj-main{display:grid;grid-template-columns:3fr 2fr;grid-template-rows:1fr 1fr;min-height:min(100svh,860px)}
+.proj-a{grid-column:1;grid-row:1/3}
+.proj-b{grid-column:2;grid-row:1}
+.proj-info{grid-column:2;grid-row:2;display:flex;flex-direction:column;justify-content:center}
+.proj-main.rev{grid-template-columns:2fr 3fr}
+.proj-main.rev .proj-a{grid-column:2}
+.proj-main.rev .proj-b{grid-column:1}
+.proj-main.rev .proj-info{grid-column:1}
+.proj-info .label{font-size:clamp(1rem,1.6vw,1.4rem);line-height:1.25}
+.proj-info .rule{background:#fff;margin:.9rem 0 1.1rem}
+.proj-info dl{display:grid;gap:.15rem}
+.proj-info dt{font-weight:600;text-decoration:underline;text-underline-offset:3px;margin-top:.55rem}
+.proj-info dd{font-size:clamp(.92rem,1.2vw,1.1rem)}
+.port-intro{display:grid;grid-template-columns:1fr 1fr;min-height:min(70svh,640px)}
+.port-intro .txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.4rem,4vw,4.5rem)}
+
+/* Seccion 5 - Cobertura nacional */
+.map-main{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:auto 1fr}
+.map-box{grid-row:1/3;padding:clamp(1rem,3vw,3rem);display:flex;align-items:center;justify-content:center;background:#fff}
+.map-box svg{width:100%;height:auto;max-height:78vh}
+.mx-shape{fill:#f3f4f2;stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
+.pin{fill:var(--red)}
+.pin-ring{fill:none;stroke:var(--red);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+.pin-lbl{font-family:var(--sans);font-weight:600;font-size:15px;fill:var(--ink)}
+.map-title{padding:clamp(1.4rem,4vw,4rem) clamp(1.4rem,4vw,4rem) 1rem;align-self:end}
+.map-green{align-self:start;margin-right:0}
+.map-green p{margin-bottom:1rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.chips li{list-style:none;border:1px solid rgba(255,255,255,.5);padding:.2rem .8rem;font-size:.9rem}
+
+/* Seccion 6 - Ventajas de la empresa */
+.why-main{display:grid;grid-template-columns:7fr 5fr;grid-template-rows:auto auto}
+.why-grid{grid-column:1;grid-row:1/3;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;border-top:3px solid var(--green)}
+.why-grid article{padding:clamp(1.2rem,3vw,2.6rem);border-right:3px solid var(--green);border-bottom:3px solid var(--green)}
+.why-grid article:nth-child(even){border-right:0}
+.why-grid .num{font-family:var(--serif);font-weight:700;color:var(--olive);background:var(--green);display:inline-grid;place-items:center;width:2.4rem;height:2.4rem;margin-bottom:.9rem}
+.why-grid h3{margin-bottom:.5rem}
+.why-grid p{font-size:.97rem}
+.why-title{padding:clamp(1.4rem,4vw,4rem)}
+.stats{display:flex;flex-direction:column;justify-content:center;gap:1.6rem}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;color:var(--olive)}
+.stat span{display:block;margin-top:.3rem}
+
+/* Seccion 7 - Contacto con direccion y botones */
+.contact-main{display:grid;grid-template-columns:7fr 5fr}
+.contact-text{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(1.4rem,4vw,5rem);gap:1.2rem}
+.contact-text .rule{margin:.4rem 0 .6rem}
+
+/* Caja de direccion (solo texto, sin boton) */
+.address-info{display:flex;align-items:flex-start;gap:.6rem;background:#f6f8f6;padding:.85rem 1.1rem;border-left:4px solid var(--green);border-radius:4px;margin:.2rem 0 .4rem;width:100%;max-width:540px}
+.address-info svg{width:22px;height:22px;flex-shrink:0;color:var(--green);margin-top:2px}
+.address-info p{font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.4;color:var(--ink)}
+.address-info p b{display:block;color:var(--green);font-size:.85rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* Lista de telefonos con los botones alineados a la derecha */
+.direct-contact-box{width:100%;max-width:540px;display:flex;flex-direction:column;margin-top:.2rem}
+.phone-line{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid #e3e6e3;gap:1.2rem;transition:background .25s ease}
+.phone-line:hover{background:rgba(39,65,58,.05)}
+.phone-text{font-size:clamp(1.6rem,3.2vw,2.5rem);font-family:var(--serif);font-weight:700;color:var(--ink);letter-spacing:.01em;white-space:nowrap}
+.phone-actions{display:flex;align-items:center;gap:.75rem}
+.round-btn{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;color:#ffffff;transition:transform .2s ease,filter .2s ease}
+.round-btn:hover{transform:scale(1.08);filter:brightness(1.08)}
+.round-btn.whatsapp{background:#25d366}
+.round-btn.phone{background:#27413a}
+.round-btn svg{width:20px;height:20px;fill:currentColor}
+
+/* Efectos de entrada en Contacto (se activan al llegar a la seccion) */
+@keyframes phoneSlide{
+  0%{opacity:0;transform:translateX(-36px)}
+  100%{opacity:1;transform:translateX(0)}
+}
+@keyframes btnPop{
+  0%{opacity:0;transform:scale(.3) rotate(-25deg)}
+  70%{opacity:1;transform:scale(1.15) rotate(4deg)}
+  100%{opacity:1;transform:scale(1) rotate(0)}
+}
+@keyframes waPulse{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+  70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
+}
+@keyframes lineGrow{
+  0%{transform:scaleX(0)}
+  100%{transform:scaleX(1)}
+}
+@keyframes addrIn{
+  0%{opacity:0;transform:translateY(16px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+
+.contact-text .rule{transform-origin:left;transform:scaleX(0)}
+.contact-text .address-info,
+.contact-text .phone-line,
+.contact-text .round-btn{opacity:0}
+
+.contact-text.in .rule{transform:scaleX(1);animation:lineGrow .8s ease .2s backwards}
+.contact-text.in .address-info{opacity:1;animation:addrIn .7s cubic-bezier(.16,1,.3,1) .35s backwards}
+.contact-text.in .phone-line{opacity:1;animation:phoneSlide .8s cubic-bezier(.16,1,.3,1) backwards}
+.contact-text.in .round-btn{opacity:1}
+
+.contact-text.in .phone-line:nth-of-type(1){animation-delay:.6s}
+.contact-text.in .phone-line:nth-of-type(2){animation-delay:.85s}
+
+.contact-text.in .phone-line:nth-of-type(1) .round-btn.whatsapp{animation:btnPop .6s ease 1s backwards, waPulse 2.4s ease-out 1.9s infinite}
+.contact-text.in .phone-line:nth-of-type(1) .round-btn.phone{animation:btnPop .6s ease 1.15s backwards}
+.contact-text.in .phone-line:nth-of-type(2) .round-btn.whatsapp{animation:btnPop .6s ease 1.25s backwards, waPulse 2.4s ease-out 2.1s infinite}
+.contact-text.in .phone-line:nth-of-type(2) .round-btn.phone{animation:btnPop .6s ease 1.4s backwards}
+
+/* Pie de pagina */
+footer{background:var(--ink);color:#d7d7d7;text-align:center;padding:1.4rem 1rem calc(1.4rem + env(safe-area-inset-bottom));font-size:.9rem;letter-spacing:.08em}
+footer b{color:#fff}
+
+/* Menu de navegacion */
+.menu-btn{position:fixed;top:max(14px,env(safe-area-inset-top));left:14px;z-index:50;background:var(--ink);color:#fff;border:0;padding:.65rem 1rem;font:600 .85rem var(--sans);letter-spacing:.08em;cursor:pointer;border-radius:3px;box-shadow:0 3px 10px rgba(0,0,0,0.18)}
+.menu{position:fixed;inset:0;background:rgba(13,13,13,.96);z-index:49;display:none;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem}
+.menu.open{display:flex}
+.menu a{font-family:var(--serif);font-weight:700;color:#fff;font-size:clamp(1.5rem,5vw,2.4rem)}
+.menu a:hover{color:var(--olive)}
+
+/* Pantallas medianas */
+@media (max-width:1024px){
+  .serv-list{grid-template-columns:1fr}
+  .why-main{grid-template-columns:1fr}
+  .why-grid{grid-row:auto}
+}
+
+/* Pantallas moviles / celulares */
+@media (max-width:820px){
+  .slide,.slide.left{grid-template-columns:1fr;min-height:0}
+  .rail,.slide.left .rail{order:2;flex-direction:row;height:56px}
+  .arrow{width:56px;height:56px;margin-left:auto}
+  .slide.left .arrow{margin-left:0;margin-right:auto}
+  .vtext{display:none}
+
+  /* PORTADA EN CELULAR: 1) logo + titular, 2) foto, 3) cuadro verde */
+  .hero-main{
+    display:flex !important;
+    flex-direction:column !important;
+    grid-template-columns:none !important;
+    grid-template-rows:none !important;
+    min-height:0 !important;
+  }
+  .hero-logo,.hero-photo,.hero-green{
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100% !important;
+    flex:none !important;
+  }
+  .hero-logo{
+    order:1 !important;
+    padding:5.6rem 1.4rem 1.6rem !important;
+    gap:1.4rem !important;
+    align-items:flex-start !important;
+  }
+  .hero-logo h1{
+    font-size:1.6rem !important;
+    line-height:1.25 !important;
+  }
+  .hero-photo{
+    order:2 !important;
+    height:64vw !important;
+    min-height:240px !important;
+  }
+  .hero-green{
+    order:3 !important;
+    padding:2.2rem 1.5rem !important;
+  }
+  .hero-small{
+    display:none !important;
+  }
+
+  /* Las demas secciones se mantienen */
+  .about-main,.serv-main,.proj-main,.proj-main.rev,.map-main,.why-main,.contact-main,.port-intro{display:flex;flex-direction:column;min-height:0}
+  .about-main .ph{height:60vw;min-height:230px}
+  .serv-photo1,.serv-photo2{height:55vw}
+  .serv-main .serv-list{padding:1.6rem}
+  .proj-a{height:62vw;min-height:230px}
+  .proj-b{height:50vw;min-height:200px}
+  .map-box{order:2}
+  .map-title{order:0;padding-bottom:.6rem}
+  .why-grid{grid-template-columns:1fr}
+  .why-grid article{border-right:0}
+  .contact-main .ph{height:60vw;min-height:230px;order:-1}
+  .port-intro .ph{height:55vw}
+}
+
+@media (max-width:480px){
+  .phone-line{flex-direction:row;justify-content:space-between}
+  .phone-text{font-size:1.5rem}
+  .round-btn{width:40px;height:40px}
+  .round-btn svg{width:18px;height:18px}
+  .logo-plate img{width:86vw;max-width:320px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .pin-ring{animation:none}
+  .hero-anim-logo,.hero-anim-title,.hero-anim-photo,.hero-anim-green{animation:none;opacity:1}
+  .contact-text .address-info,
+  .contact-text .phone-line,
+  .contact-text .round-btn{opacity:1;animation:none !important}
+  .contact-text .rule{transform:none;animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- Icono de flecha reutilizable para avanzar de slide -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="chev" viewBox="0 0 24 24"><path d="M12 3v17M5 13l7 7 7-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- Boton de menu y navegacion -->
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">MENÚ</button>
+<nav class="menu" id="menu" aria-label="Navegación principal">
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Quiénes somos</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#portafolio">Portafolio</a>
+  <a href="#cobertura">Cobertura nacional</a>
+  <a href="#calidad">¿Por qué elegirnos?</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- 1. Inicio -->
+<section class="slide" id="inicio">
+  <div class="main hero-main">
+    <!-- 1) Logo y titular arriba -->
+    <div class="hero-logo">
+      <div class="logo-plate hero-anim-logo">
+        <img src="logo.png" alt="Iron Nay Mex, estructuras metálicas y naves industriales">
+      </div>
+      <h1 class="hero-anim-title">Construimos estructuras que <em>impulsan</em> el crecimiento de nuestros clientes.</h1>
+    </div>
+    <!-- 2) La foto grande abajo del texto -->
+    <figure class="ph hero-photo hero-anim-photo" style="background-image:url('hero-nave-industrial.jpg')" role="img" aria-label="Estructura metálica de una nave industrial en construcción"></figure>
+    <figure class="ph hero-small" style="background-image:url('hero-estructura-acero.jpg')" role="img" aria-label="Columnas y armaduras de acero"></figure>
+    <!-- 3) El recuadro verde al final -->
+    <div class="green pad hero-green hero-anim-green">
+      <p>Diseño, fabricación y montaje de estructuras metálicas de alta resistencia para proyectos industriales, comerciales y de infraestructura.</p>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="arrow" href="#nosotros" aria-label="Ir a la siguiente sección"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- 2. Quienes somos -->
+<section class="slide left" id="nosotros">
+  <div class="main about-main">
+    <figure class="ph reveal" style="background-image:url('nosotros-estructura.jpg')" role="img" aria-label="Estructura metálica en proceso de montaje"></figure>
+    <div class="about-text reveal">
+      <p class="label">Quiénes somos</p>
+      <span class="rule"></span>
+      <h2 class="h-lg">Soluciones seguras, de alta calidad y a la medida de cada cliente.</h2>
+      <p class="lead">Iron Nay Mex es una empresa mexicana especializada en el diseño, fabricación y montaje de estructuras metálicas para proyectos industriales, comerciales y de infraestructura. Cumplimos con los más altos estándares de ingeniería.</p>
+      <p>Contamos con experiencia en la fabricación de naves industriales, edificios de estructura metálica, plataformas, espectaculares, andamios, encofrados y proyectos especiales en acero.</p>
+      <p>Atendemos obras en cualquier parte de la República Mexicana y ofrecemos un servicio integral que abarca desde la planeación y la fabricación hasta el montaje final. Trabajamos con un firme compromiso de calidad, seguridad y cumplimiento, para entregar proyectos que garantizan resistencia, eficiencia y durabilidad.</p>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="arrow" style="--c:var(--olive)" href="#servicios" aria-label="Ir a la siguiente sección"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- 3. Servicios -->
+<section class="slide" id="servicios">
+  <div class="main serv-main">
+    <div class="serv-title reveal">
+      <h2 class="h-xl">Servicios</h2>
+      <p class="lead">Diseño, fabricación y montaje de estructuras metálicas de alta resistencia, con acompañamiento en cada etapa de tu obra.</p>
+    </div>
+    <figure class="ph serv-photo1 reveal" style="background-image:url('servicios-interior-nave.jpg')" role="img" aria-label="Interior de una nave industrial con estructura de acero"></figure>
+    <figure class="ph serv-photo2 reveal" style="background-image:url('servicios-nave-exterior.jpg')" role="img" aria-label="Nave industrial terminada"></figure>
+    <div class="green pad serv-list reveal">
+      <div><h3 class="h-md">Naves industriales y comerciales</h3><p>Construcción de naves con soluciones eficientes, resistentes y adaptadas a las necesidades de cada proyecto.</p></div>
+      <div><h3 class="h-md">Encofrados</h3><p>Sistemas de encofrados reutilizables que optimizan los tiempos de construcción y garantizan acabados de calidad.</p></div>
+      <div><h3 class="h-md">Andamios</h3><p>Andamios de alta seguridad que brindan estabilidad y confianza para trabajos en altura.</p></div>
+      <div><h3 class="h-md">Rampas de carga y descarga</h3><p>Fabricación de rampas para operaciones logísticas, con capacidades de 6 a 15 toneladas.</p></div>
+      <div><h3 class="h-md">Puntales de acero</h3><p>Puntales ajustables fabricados con acero de alta calidad, normados y certificados en cédula 40.</p></div>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="arrow" style="--c:var(--ink)" href="#portafolio" aria-label="Ir a la siguiente sección"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- 4. Portafolio -->
+<section class="slide left" id="portafolio">
+  <div class="main port-intro">
+    <div class="txt reveal">
+      <p class="label">Nuestro trabajo</p>
+      <span class="rule"></span>
+      <h2 class="h-xl">Proyectos que hablan por nosotros</h2>
+      <p class="lead" style="margin-top:1.2rem;max-width:46ch">Una muestra de las obras que hemos desarrollado en distintos estados del país, con la seguridad y la calidad que nos distinguen.</p>
+    </div>
+    <figure class="ph reveal" style="background-image:url('portafolio-portada.jpg')" role="img" aria-label="Proyecto de estructura metálica terminado"></figure>
+  </div>
+  <div class="rail">
+    <a class="arrow" style="--c:var(--olive)" href="#p1" aria-label="Ver proyectos"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- Proyecto 1: Zapopan cubierta -->
+<section class="slide" id="p1">
+  <div class="main proj-main">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-1a.jpg')" role="img" aria-label="Techumbre y cubierta para bodega en Zapopan, Jalisco"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-1b.jpg')" role="img" aria-label="Detalle de cubierta metálica"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Techumbre y cubierta para bodega</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Zapopan, Jalisco, México</dd><dt>Año</dt><dd>2020</dd><dt>Obra</dt><dd>Techumbre y cubierta metálica para bodega</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--ink)" href="#p2" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- Proyecto 2: Hermosillo estructura -->
+<section class="slide left" id="p2">
+  <div class="main proj-main rev">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-2a.jpg')" role="img" aria-label="Estructura metálica de carga ligera en Hermosillo, Sonora"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-2b.jpg')" role="img" aria-label="Detalle de estructura de carga ligera"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Estructura metálica de carga ligera</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Hermosillo, Sonora, México</dd><dt>Año</dt><dd>2018</dd><dt>Obra</dt><dd>Estructura metálica de carga ligera</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--olive)" href="#p3" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- Proyecto 3: Zapopan nave -->
+<section class="slide" id="p3">
+  <div class="main proj-main">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-3a.jpg')" role="img" aria-label="Nave industrial en fase final, Parque Industrial Zapopan"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-3b.jpg')" role="img" aria-label="Vista exterior de nave industrial"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Nave industrial en fase final</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Parque Industrial Zapopan, Jalisco, México</dd><dt>Año</dt><dd>2018</dd><dt>Obra</dt><dd>Nave industrial</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--green)" href="#p4" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- Proyecto 4: Rampas de carga -->
+<section class="slide left" id="p4">
+  <div class="main proj-main rev">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-4a.jpg')" role="img" aria-label="Rampas de elevación para carga y descarga en nave industrial"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-4b.jpg')" role="img" aria-label="Detalle de rampa de carga"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Rampas de elevación para carga y descarga</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Parque Industrial Zapopan, Jalisco, México</dd><dt>Año</dt><dd>2018</dd><dt>Capacidad</dt><dd>12 toneladas</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--olive)" href="#p5" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- Proyecto 5: La Yesca encofrados -->
+<section class="slide" id="p5">
+  <div class="main proj-main">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-5a.jpg')" role="img" aria-label="Encofrados en obra, La Yesca, Nayarit"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-5b.jpg')" role="img" aria-label="Detalle de sistema de encofrado"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Encofrados de alta calidad y seguridad</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>La Yesca, Nayarit, México</dd><dt>Año</dt><dd>2011</dd><dt>Obra</dt><dd>Sistema de encofrados</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--ink)" href="#p6" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- Proyecto 6: Monterrey andamios -->
+<section class="slide left" id="p6">
+  <div class="main proj-main rev">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-6a.jpg')" role="img" aria-label="Andamios y puntales certificados en Monterrey, Nuevo León"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-6b.jpg')" role="img" aria-label="Puntales de acero cédula 40"></figure>
+    <div class="green pad proj-info reveal">
+      <h3 class="label">Andamios y puntales certificados</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Monterrey, Nuevo León, México</dd><dt>Año</dt><dd>2021</dd><dt>Obra</dt><dd>Andamios de alta seguridad y puntales normados en cédula 40</dd></dl>
+    </div>
+  </div>
+  <div class="rail"><a class="arrow" style="--c:var(--olive)" href="#cobertura" aria-label="Ir a la siguiente sección"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
+</section>
+
+<!-- 5. Cobertura nacional -->
+<section class="slide" id="cobertura">
+  <div class="main map-main">
+    <div class="map-box reveal">
+      <svg viewBox="0 0 650 380" role="img" aria-label="Mapa de México con los puntos donde hemos desarrollado proyectos">
+        <polygon class="mx-shape" points="28,6 76,2 74,20 76,28 92,60 112,86 132,110 144,138 164,172 182,192 172,198 160,186 130,164 122,136 90,108 68,100 56,66 40,40"/>
+        <polygon class="mx-shape" points="74,20 76,2 148,30 206,20 206,30 240,21 272,44 280,64 308,76 322,60 342,60 356,74 380,106 388,128 427,137 416,170 414,206 422,230 440,258 448,276 470,292 482,293 500,288 520,284 540,286 560,258 562,236 578,232 610,224 630,226 622,252 620,286 604,286 592,298 562,300 542,310 552,332 526,364 492,338 466,332 440,342 410,332 374,316 350,302 326,296 300,290 270,266 258,248 264,226 256,202 232,178 210,156 182,124 158,98 122,76 112,56 108,34"/>
+
+        <!-- Pines de ciudades -->
+        <g><circle class="pin-ring" cx="151" cy="74" r="8"/><circle class="pin" cx="151" cy="74" r="7"/><text class="pin-lbl" x="164" y="70">Hermosillo</text></g>
+        <g><circle class="pin-ring" cx="364" cy="142" r="8"/><circle class="pin" cx="364" cy="142" r="7"/><text class="pin-lbl" x="377" y="138">Monterrey</text></g>
+        <g><circle class="pin-ring" cx="278" cy="232" r="8"/><circle class="pin" cx="278" cy="232" r="7"/><text class="pin-lbl" x="108" y="236">La Yesca, Nayarit</text><line x1="226" y1="231" x2="268" y2="232" stroke="#0d0d0d" stroke-width="1"/></g>
+        <g><circle class="pin-ring" cx="302" cy="246" r="8"/><circle class="pin" cx="302" cy="246" r="7"/><text class="pin-lbl" x="316" y="262">Zapopan, Jalisco</text></g>
+      </svg>
+    </div>
+    <div class="map-title reveal">
+      <h2 class="h-xl">Cobertura nacional</h2>
+    </div>
+    <div class="green pad map-green reveal">
+      <p>Atendemos proyectos en todo México, con soluciones para los sectores industrial, comercial y de infraestructura, con logística eficiente y atención personalizada.</p>
+      <p>Estos son algunos de los lugares donde hemos dejado huella:</p>
+      <ul class="chips">
+        <li>Zapopan, Jalisco</li><li>Hermosillo, Sonora</li><li>Monterrey, Nuevo León</li><li>La Yesca, Nayarit</li>
+      </ul>
+      <span class="rule" style="background:#fff;margin-top:1.6rem"></span>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="arrow" style="--c:var(--olive)" href="#calidad" aria-label="Ir a la siguiente sección"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- 6. Razones para elegirnos -->
+<section class="slide left" id="calidad">
+  <div class="main why-main">
+    <div class="why-grid">
+      <article class="reveal"><span class="num">1</span><h3 class="h-md">Ingeniería y calidad</h3><p>Cada proyecto se desarrolla con materiales de alta calidad y procesos de fabricación que garantizan resistencia, precisión y un excelente desempeño estructural.</p></article>
+      <article class="reveal"><span class="num">2</span><h3 class="h-md">Seguridad en cada proyecto</h3><p>Trabajamos bajo altos estándares de seguridad durante la fabricación y el montaje, para proteger tanto a nuestro equipo como a nuestros clientes.</p></article>
+      <article class="reveal"><span class="num">3</span><h3 class="h-md">Cobertura nacional</h3><p>Atendemos proyectos en todo México con soluciones para los sectores industrial, comercial y de infraestructura, con logística y atención personalizada.</p></article>
+      <article class="reveal"><span class="num">4</span><h3 class="h-md">Cumplimiento y confianza</h3><p>Nos comprometemos a entregar cada proyecto en los tiempos acordados, manteniendo comunicación constante y un seguimiento cercano de principio a fin.</p></article>
+    </div>
+    <div class="why-title reveal">
+      <p class="label">Nuestra experiencia</p><span class="rule"></span>
+      <h2 class="h-lg">¿Por qué elegir Iron Nay Mex?</h2>
+    </div>
+    <div class="green pad stats reveal">
+      <div class="stat"><b>+15</b><span>años de experiencia respaldando cada proyecto con profesionalismo.</span></div>
+      <div class="stat"><b>+500</b><span>proyectos ejecutados con soluciones metálicas en todo México.</span></div>
+      <span class="rule" style="background:#fff;margin:0"></span>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="arrow" style="--c:var(--ink)" href="#contacto" aria-label="Ir a contacto"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- 7. CONTACTO: direccion arriba y cada numero con sus 2 botones (WhatsApp y llamar) -->
+<section class="slide" id="contacto">
+  <div class="main contact-main">
+    <div class="contact-text reveal">
+      <div class="logo-plate">
+        <img src="logo.png" alt="Iron Nay Mex, estructuras metálicas y naves industriales">
+      </div>
+      <span class="rule"></span>
+      <h2 class="h-lg">Listo para desarrollar tu proyecto</h2>
+      <p class="lead">En Iron Nay Mex transformamos ideas en estructuras confiables, funcionales y de alto nivel para la industria. Será un gusto atenderte.</p>
+
+      <!-- Direccion de oficinas (sin boton de ubicacion) -->
+      <div class="address-info">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        <p><b>Ubicación</b>Oficinas en calle Guadalupe 35, colonia Santa Fe, Tepic, Nayarit</p>
+      </div>
+
+      <div class="direct-contact-box">
+        <h3 class="h-md" style="margin-top:.4rem;margin-bottom:.2rem">Número de contacto</h3>
+
+        <!-- Fila 1: 311 159 5244 con WhatsApp y Llamar enfrente -->
+        <div class="phone-line">
+          <span class="phone-text">311 159 5244</span>
+          <div class="phone-actions">
+            <a class="round-btn whatsapp" href="https://wa.me/523111595244?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20con%20Iron%20Nay%20Mex." target="_blank" rel="noopener" aria-label="WhatsApp al 311 159 5244" title="Enviar WhatsApp al 311 159 5244">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.29-1.92 1.37-.5.08-1.15.11-3.69-.94-3.25-1.35-5.34-4.65-5.5-4.87-.16-.22-1.32-1.76-1.32-3.36 0-1.6 1.05-2.39 1.42-2.73.37-.34.8-.43 1.07-.43.27 0 .53 0 .76.01.24.01.57-.09.89.68.33.8 1.13 2.76 1.23 2.96.1.2.16.44.03.7-.13.26-.2.42-.4.65-.2.24-.42.53-.6.71-.2.2-.41.42-.18.82.23.4 1.02 1.68 2.19 2.72 1.5 1.34 2.77 1.75 3.17 1.95.4.2.63.17.86-.1.24-.26 1.01-1.18 1.28-1.58.27-.4.54-.33.91-.2.37.13 2.36 1.11 2.76 1.31.4.2.67.3.77.47.1.17.1.98-.14 1.65z"/></svg>
+            </a>
+            <a class="round-btn phone" href="tel:+523111595244" aria-label="Llamar al 311 159 5244" title="Llamar al 311 159 5244">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Fila 2: 334 284 6997 con WhatsApp y Llamar enfrente -->
+        <div class="phone-line">
+          <span class="phone-text">334 284 6997</span>
+          <div class="phone-actions">
+            <a class="round-btn whatsapp" href="https://wa.me/523342846997?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20con%20Iron%20Nay%20Mex." target="_blank" rel="noopener" aria-label="WhatsApp al 334 284 6997" title="Enviar WhatsApp al 334 284 6997">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.39 1.29-1.92 1.37-.5.08-1.15.11-3.69-.94-3.25-1.35-5.34-4.65-5.5-4.87-.16-.22-1.32-1.76-1.32-3.36 0-1.6 1.05-2.39 1.42-2.73.37-.34.8-.43 1.07-.43.27 0 .53 0 .76.01.24.01.57-.09.89.68.33.8 1.13 2.76 1.23 2.96.1.2.16.44.03.7-.13.26-.2.42-.4.65-.2.24-.42.53-.6.71-.2.2-.41.42-.18.82.23.4 1.02 1.68 2.19 2.72 1.5 1.34 2.77 1.75 3.17 1.95.4.2.63.17.86-.1.24-.26 1.01-1.18 1.28-1.58.27-.4.54-.33.91-.2.37.13 2.36 1.11 2.76 1.31.4.2.67.3.77.47.1.17.1.98-.14 1.65z"/></svg>
+            </a>
+            <a class="round-btn phone" href="tel:+523342846997" aria-label="Llamar al 334 284 6997" title="Llamar al 334 284 6997">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure class="ph reveal" style="background-image:url('contacto-nave.jpg')" role="img" aria-label="Nave industrial con estructura de acero"></figure>
+  </div>
+  <div class="rail">
+    <a class="arrow" href="#inicio" aria-label="Volver al inicio" style="transform:rotate(180deg)"><svg><use href="#chev"/></svg></a>
+    <span class="vtext">Portafolio Iron Nay Mex</span>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><b>Diseñamos</b> • <b>Fabricamos</b> • <b>Construimos</b> • <b>Entregamos calidad</b></p>
+  <p style="margin-top:.4rem;font-size:.8rem;opacity:.7">© <span id="year"></span> Iron Nay Mex. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  // Pone el anio actual automaticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Abrir y cerrar el menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  function toggleMenu(open){
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'CERRAR' : 'MENÚ';
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  btn.addEventListener('click', () => toggleMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') toggleMenu(false); });
+
+  // Animacion de aparicion al bajar la pagina
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
