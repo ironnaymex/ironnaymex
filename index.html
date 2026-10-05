@@ -110,6 +110,14 @@ a{color:inherit;text-decoration:none}
 .proj-main.rev .proj-a{grid-column:2}
 .proj-main.rev .proj-b{grid-column:1}
 .proj-main.rev .proj-info{grid-column:1}
+
+/* Layout especial para 3 fotos en la agencia */
+.proj-main-trio{display:grid;grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:1fr 1fr;min-height:min(100svh,860px)}
+.proj-main-trio .proj-info{grid-column:1;grid-row:1/3}
+.proj-main-trio .proj-a{grid-column:2;grid-row:1/3}
+.proj-main-trio .proj-b{grid-column:3;grid-row:1}
+.proj-main-trio .proj-c{grid-column:3;grid-row:2}
+
 .proj-info .label{font-size:clamp(1rem,1.6vw,1.4rem);line-height:1.25}
 .proj-info .rule{background:#fff;margin:.9rem 0 1.1rem}
 .proj-info dl{display:grid;gap:.15rem}
@@ -227,6 +235,11 @@ footer b{color:#fff}
   .serv-list{grid-template-columns:1fr}
   .why-main{grid-template-columns:1fr}
   .why-grid{grid-row:auto}
+  .proj-main-trio{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .proj-main-trio .proj-info{grid-column:1/3;grid-row:auto}
+  .proj-main-trio .proj-a{grid-column:1;grid-row:auto;min-height:300px}
+  .proj-main-trio .proj-b{grid-column:2;grid-row:auto;min-height:220px}
+  .proj-main-trio .proj-c{grid-column:2;grid-row:auto;min-height:220px}
 }
 
 /* Pantallas moviles / celulares */
@@ -275,12 +288,13 @@ footer b{color:#fff}
   }
 
   /* Las demas secciones se mantienen */
-  .about-main,.serv-main,.proj-main,.proj-main.rev,.map-main,.why-main,.contact-main,.port-intro{display:flex;flex-direction:column;min-height:0}
+  .about-main,.serv-main,.proj-main,.proj-main.rev,.proj-main-trio,.map-main,.why-main,.contact-main,.port-intro{display:flex;flex-direction:column;min-height:0}
   .about-main .ph{height:60vw;min-height:230px}
   .serv-photo1,.serv-photo2{height:55vw}
   .serv-main .serv-list{padding:1.6rem}
   .proj-a{height:62vw;min-height:230px}
   .proj-b{height:50vw;min-height:200px}
+  .proj-c{height:50vw;min-height:200px}
   .map-box{order:2}
   .map-title{order:0;padding-bottom:.6rem}
   .why-grid{grid-template-columns:1fr}
@@ -494,24 +508,29 @@ footer b{color:#fff}
 <!-- Proyecto 7: Cinemex Nogales y Hermosillo -->
 <section class="slide" id="p7">
   <div class="main proj-main">
-    <figure class="ph proj-a reveal" style="background-image:url('proyecto-7a.jpg')" role="img" aria-label="Estructura metálica para Cinemex en Nogales, Sonora"></figure>
-    <figure class="ph proj-b reveal" style="background-image:url('proyecto-7b.jpg')" role="img" aria-label="Estructura metálica para Cinemex en Hermosillo, Sonora"></figure>
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-7a.jpg')" role="img" aria-label="Construcción de complejo Cinemex en Nogales, Sonora"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-7b.jpg')" role="img" aria-label="Construcción de complejo Cinemex en Hermosillo, Sonora"></figure>
     <div class="green pad proj-info reveal">
-      <h3 class="label">Estructura metálica para Cinemex</h3><span class="rule"></span>
-      <dl><dt>Ubicación</dt><dd>Nogales y Hermosillo, Sonora, México</dd><dt>Año</dt><dd>2017</dd><dt>Obra</dt><dd>Estructura metálica para complejos de cine Cinemex</dd></dl>
+      <h3 class="label">Construcción de complejos Cinemex</h3><span class="rule"></span>
+      <dl><dt>Ubicación</dt><dd>Nogales y Hermosillo, Sonora, México</dd><dt>Año</dt><dd>2017</dd><dt>Obra</dt><dd>Construcción integral de complejos de cine Cinemex</dd></dl>
     </div>
   </div>
   <div class="rail"><a class="arrow" style="--c:var(--ink)" href="#p8" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
 </section>
 
-<!-- Proyecto 8: Agencia automotriz GMC Tepic -->
+<!-- Proyecto 8: Agencia automotriz Chevrolet y GMC Tepic (3 Fotos) -->
 <section class="slide left" id="p8">
-  <div class="main proj-main rev">
-    <figure class="ph proj-a reveal" style="background-image:url('proyecto-8a.jpg')" role="img" aria-label="Construcción de la agencia automotriz GMC en Tepic, Nayarit"></figure>
-    <figure class="ph proj-b reveal" style="background-image:url('proyecto-8b.jpg')" role="img" aria-label="Detalle de la obra de la agencia GMC en Tepic"></figure>
+  <div class="main proj-main-trio">
+    <figure class="ph proj-a reveal" style="background-image:url('proyecto-8a.jpg')" role="img" aria-label="Construcción de la agencia automotriz Chevrolet y GMC en Tepic, Nayarit"></figure>
+    <figure class="ph proj-b reveal" style="background-image:url('proyecto-8b.jpg')" role="img" aria-label="Detalle de estructura de la agencia Chevrolet y GMC"></figure>
+    <figure class="ph proj-c reveal" style="background-image:url('proyecto-8c.jpg')" role="img" aria-label="Área de exhibición y montaje de agencia Chevrolet y GMC"></figure>
     <div class="green pad proj-info reveal">
-      <h3 class="label">Agencia automotriz GMC</h3><span class="rule"></span>
-      <dl><dt>Ubicación</dt><dd>Tepic, Nayarit, México</dd><dt>Obra</dt><dd>Construcción integral de agencia automotriz</dd></dl>
+      <h3 class="label">Agencia automotriz Chevrolet y GMC</h3><span class="rule"></span>
+      <dl>
+        <dt>Ubicación</dt><dd>Tepic, Nayarit, México</dd>
+        <dt>Año</dt><dd>2012 – 2013</dd>
+        <dt>Obra</dt><dd>Construcción integral de agencia automotriz</dd>
+      </dl>
     </div>
   </div>
   <div class="rail"><a class="arrow" style="--c:var(--olive)" href="#p9" aria-label="Siguiente proyecto"><svg><use href="#chev"/></svg></a><span class="vtext">Portafolio Iron Nay Mex</span></div>
